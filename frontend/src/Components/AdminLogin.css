@@ -1,0 +1,74 @@
+/* AdminLogin.css */
+
+/* Main Container */
+.admin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #e0eafc);
+}
+
+/* Login Box */
+.admin-login-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 370px;
+  text-align: center;
+}
+
+/* Heading */
+.admin-login-box h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Input Fields */
+.admin-login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.admin-login-box input:focus {
+  border-color: #00b894;
+}
+
+/* Button */
+.admin-login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-login-box button:hover {
+  background-color: #019875;
+}
+
+/* Optional: Link Styles */
+.admin-login-box a {
+  display: block;
+  margin-top: 10px;
+  color: #00b894;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.admin-login-box a:hover {
+  text-decoration: underline;
+}

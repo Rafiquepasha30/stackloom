@@ -1,0 +1,74 @@
+/* About Section Container */
+.about-container {
+  background: #f8f9fc;
+  padding: 60px 15%;
+  text-align: left;
+}
+
+/* Title Styling */
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  display: flex;
+  align-items: center;
+}
+
+.title-bar {
+  color: #f39c12;
+  font-size: 50px;
+  margin-right: 10px;
+}
+
+/* Paragraph Text */
+.about-text {
+  font-size: 18px;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Why Choose Softlearn */
+.why-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin-top: 30px;
+}
+
+/* List Styling */
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.about-list li {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.about-list li strong {
+  color: #222;
+}
+
+/* Read More Button */
+.btn-read-more {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #f39c12;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background: #e67e22;
+  transform: scale(1.05);
+}

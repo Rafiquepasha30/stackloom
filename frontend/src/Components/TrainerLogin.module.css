@@ -1,0 +1,51 @@
+/* TrainerLogin.module.css */
+
+.trainerLoginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa, #e0eafc);
+  }
+  
+  .trainerLoginBox {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+  }
+  
+  .trainerLoginBox h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .trainerLoginBox input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .trainerLoginBox button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .trainerLoginBox button:hover {
+    background-color: #019875;
+  }
+  

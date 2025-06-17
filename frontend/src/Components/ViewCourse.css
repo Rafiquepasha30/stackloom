@@ -1,0 +1,10 @@
+.view-course-container {
+    max-width: 800px;
+  }
+  
+  .course-banner {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  

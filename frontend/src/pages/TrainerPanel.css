@@ -1,0 +1,81 @@
+.trainer-panel {
+    min-height: 100vh;
+    padding: 50px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    text-align: center;
+  }
+  
+  .trainer-panel h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #083358;
+  }
+  
+  .trainer-panel h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .students-list {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: left;
+  }
+  
+  .students-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .students-list li {
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    background-color: #f4f7fa;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .students-list li strong {
+    font-size: 18px;
+    color: #0072ff;
+  }
+  
+  .students-list li span {
+    font-size: 16px;
+    color: #555;
+  }
+  .assigned-courses {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .course-badge {
+    background-color: #e0f7fa;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #00796b;
+  }
+  
+  
+  /* If no students assigned */
+  .trainer-panel p {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  

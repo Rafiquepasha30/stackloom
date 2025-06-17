@@ -1,0 +1,69 @@
+/* Enquire Section Container */
+.enquire-section {
+   /* Gradient Background */
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Container */
+.enquire-form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Title */
+.enquire-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Input Fields */
+.enquire-form input,
+.enquire-form select,
+.enquire-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Input Focus Effect */
+.enquire-form input:focus,
+.enquire-form select:focus,
+.enquire-form textarea:focus {
+  border-color: #6a0dad;
+  outline: none;
+  box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
+}
+
+/* Send Button */
+.enquire-btn {
+  background: #ffa500;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.enquire-btn:hover {
+  background: #ff8c00;
+  transform: scale(1.05);
+}

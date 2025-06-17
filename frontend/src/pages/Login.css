@@ -1,0 +1,89 @@
+/* Full-screen background with a subtle gradient */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+
+/* Login box styling */
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+/* Headings */
+.login-box h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Input field focus effect */
+.login-box input:focus {
+  border-color: #ff4b2b;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 75, 43, 0.3);
+}
+
+/* Sign In Button */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ff4b2b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: #e63e26;
+}
+
+/* Links */
+.login-box a {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #ff4b2b;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .login-box {
+    width: 90%;
+  }
+}

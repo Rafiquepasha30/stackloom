@@ -1,0 +1,12 @@
+.footer {
+  background-color: #77716a; 
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #f4b400;  /* Google Yellow */
+}
