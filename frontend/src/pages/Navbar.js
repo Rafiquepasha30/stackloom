@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { FaFacebookF, FaGoogle, FaInstagram, FaYoutube } from "react-icons/fa";
-import Logo from "../assests/stack_loom.png";
+import Logo from "../assests/new_logo.png";
 
 const SharedNavbar = () => {
   return (
