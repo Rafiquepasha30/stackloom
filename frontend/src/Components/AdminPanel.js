@@ -42,21 +42,21 @@ const AdminPanel = () => {
 
   const fetchCourses = () => {
     axios
-      .get("http://localhost:5000/courses")
+      .get(`${process.env.REACT_APP_API_URL}/courses`)
       .then((res) => setCourses(res.data))
       .catch((err) => console.log(err));
   };
 
   const fetchTrainers = () => {
     axios
-      .get("http://localhost:5000/auth/trainers")
+      .get(`${process.env.REACT_APP_API_URL}/auth/trainers`)
       .then((res) => setTrainers(res.data))
       .catch((err) => console.log(err));
   };
 
   const fetchStudents = () => {
     axios
-      .get("http://localhost:5000/student/students")
+      .get(`${process.env.REACT_APP_API_URL}/student/students`)
       .then((res) => setStudents(res.data))
       .catch((err) => console.log(err));
   };
@@ -72,13 +72,13 @@ const AdminPanel = () => {
     e.preventDefault();
     if (editing) {
       axios
-        .put(`http://localhost:5000/courses/${course._id}`, course)
+        .put(`${process.env.REACT_APP_API_URL}/courses/${course._id}`, course)
         .then(() => {
           alert("Course Updated");
           resetCourseForm();
         });
     } else {
-      axios.post("http://localhost:5000/courses/add", course).then(() => {
+      axios.post(`${process.env.REACT_APP_API_URL}/courses/add`, course).then(() => {
         alert("Course Added");
         resetCourseForm();
       });
@@ -88,14 +88,14 @@ const AdminPanel = () => {
     e.preventDefault();
     const token = localStorage.getItem("token"); // Admin token
     axios
-      .post("http://localhost:5000/auth/create-trainer", trainer, {
+      .post(`${process.env.REACT_APP_API_URL}/auth/create-trainer`, trainer, {
         headers: { Authorization: token },
       })
       .then((res) => {
         alert(`✅ ${res.data.message}`);
         setTrainer({ name: "", email: "", password: "" }); // Clear form
       })
-      .catch((err) => alert(`❌ ${err.response.data.message}`));
+      .catch((err) => alert(` ${err.response.data.message}`));
   };
 
   const resetCourseForm = () => {
@@ -117,7 +117,7 @@ const AdminPanel = () => {
   };
 
   const handleDelete = () => {
-    axios.delete(`http://localhost:5000/courses/${courseToDelete}`).then(() => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/courses/${courseToDelete}`).then(() => {
       alert("Deleted");
       fetchCourses();
     });
@@ -128,7 +128,7 @@ const AdminPanel = () => {
     if (!selectedStudent || !selectedCourse)
       return alert("Select student and course!");
     axios
-      .post(`http://localhost:5000/student/assign-course/${selectedStudent}`, {
+      .post(`${process.env.REACT_APP_API_URL}/student/assign-course/${selectedStudent}`, {
         courseId: selectedCourse,
       })
       .then((res) => alert(res.data.message))
@@ -143,7 +143,7 @@ const AdminPanel = () => {
 
     axios
       .post(
-        `http://localhost:5000/student/assign-trainer/${selectedStudentForTrainer}`,
+        `${process.env.REACT_APP_API_URL}/student/assign-trainer/${selectedStudentForTrainer}`,
         { trainerId: selectedTrainer }
       )
       .then((res) => alert(`✅ ${res.data.message}`))
@@ -158,7 +158,7 @@ const AdminPanel = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     axios
-      .post("http://localhost:5000/auth/create-admin", admin, {
+      .post(`${process.env.REACT_APP_API_URL}/auth/create-admin`, admin, {
         headers: { Authorization: token },
       })
       .then((res) => {

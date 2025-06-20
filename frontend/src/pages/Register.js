@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     try {
       // Send role as 'student' always!
-      await axios.post("http://localhost:5000/auth/register", { 
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, { 
         ...user, 
         role: "student" 
       });

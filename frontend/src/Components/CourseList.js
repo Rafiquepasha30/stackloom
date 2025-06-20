@@ -20,14 +20,14 @@ const CourseList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
+      .get(`${process.env.REACT_APP_API_URL}/courses`)
       .then((response) => setCourses(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   const deleteCourse = (id) => {
     axios
-      .delete(`http://localhost:5000/courses/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/courses/${id}`)
       .then(() => setCourses(courses.filter((course) => course._id !== id)))
       .catch((error) => console.log(error));
   };

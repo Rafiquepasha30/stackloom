@@ -9,7 +9,7 @@ const ViewCourse = () => {
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/courses/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/${id}`)
       .then(res => setCourse(res.data))
       .catch(err => console.log(err));
   }, [id]);

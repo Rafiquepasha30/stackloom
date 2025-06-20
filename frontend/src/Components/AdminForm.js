@@ -11,7 +11,7 @@ const AdminForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.post('http://localhost:5000/auth/create-admin', admin, {
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/create-admin`, admin, {
       headers: { Authorization: token }
     })
     .then(res => alert(res.data.message))

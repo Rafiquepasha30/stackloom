@@ -8,13 +8,13 @@ const TrainerPanel = () => {
   useEffect(() => {
     const fetchAssignedStudents = async () => {
       try {
-        const trainerId = localStorage.getItem('id'); // ✅ trainer id
-        const token = localStorage.getItem('token');  // ✅ token
+        const trainerId = localStorage.getItem('id'); // trainer id
+        const token = localStorage.getItem('token');  // token
         if (!trainerId) {
           alert('Trainer ID not found!');
           return;
         }
-        const res = await axios.get(`http://localhost:5000/student/assigned-students/${trainerId}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/student/assigned-students/${trainerId}`, {
           headers: { Authorization: token }
         });
         setStudents(res.data);

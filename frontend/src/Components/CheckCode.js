@@ -18,11 +18,11 @@ const AdminPanel = () => {
 
   // --- Fetch students & courses on mount ---
   useEffect(() => {
-    axios.get('http://localhost:5000/student/students')
+    axios.get(`${process.env.REACT_APP_API_URL}/student/students`)
       .then(res => setStudents(res.data))
       .catch(err => console.log(err));
 
-    axios.get('http://localhost:5000/courses')
+    axios.get(`${process.env.REACT_APP_API_URL}/courses`)
       .then(res => setCourses(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -34,11 +34,11 @@ const AdminPanel = () => {
 
   const handleCourseSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/courses/add', course)
+    axios.post(`${process.env.REACT_APP_API_URL}/courses/add`, course)
       .then(() => {
         alert('✅ Course Added Successfully!');
         // Refresh course list
-        axios.get('http://localhost:5000/courses')
+        axios.get(`${process.env.REACT_APP_API_URL}/courses`)
           .then(res => setCourses(res.data));
         // Reset form
         setCourse({ title: '', description: '', price: '', category: '', image: '' });
@@ -53,7 +53,7 @@ const AdminPanel = () => {
       return;
     }
 
-    axios.post(`http://localhost:5000/student/assign-course/${selectedStudent}`, { courseId: selectedCourse })
+    axios.post(`${process.env.REACT_APP_API_URL}/student/assign-course/${selectedStudent}`, { courseId: selectedCourse })
       .then(res => alert(`✅ ${res.data.message}`))
       .catch(err => alert(`❌ ${err.response.data.message}`));
   };
@@ -66,7 +66,7 @@ const AdminPanel = () => {
   const handleAdminSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token'); // Admin token
-    axios.post('http://localhost:5000/auth/create-admin', admin, {
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/create-admin`, admin, {
       headers: { Authorization: token }
     })
       .then(res => {

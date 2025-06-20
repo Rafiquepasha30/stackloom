@@ -10,7 +10,7 @@ const StudentDashboard = () => {
   const studentId = localStorage.getItem('userId');
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/student/my-courses/${studentId}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/student/my-courses/${studentId}`)
       .then(res => setMyCourses(res.data))
       .catch(err => console.log(err));
   }, [studentId]);

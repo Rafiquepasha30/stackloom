@@ -11,7 +11,7 @@ const CoursesSlider = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/courses")
+    axios.get(`${process.env.REACT_APP_API_URL}/courses`)
       .then(res => setCourses(res.data))
       .catch(err => console.log("Error fetching courses:", err));
   }, []);

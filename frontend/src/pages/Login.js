@@ -14,14 +14,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:5000/auth/login", credentials);
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, credentials);
             
-            // ✅ Store token, role, userId
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("userId", res.data.id);
 
-            // ✅ Redirect based on role
+            // Redirect based on role
             if (res.data.role === "admin") {
                 navigate("/admin");  // Make sure route matches App.js
             } else {
