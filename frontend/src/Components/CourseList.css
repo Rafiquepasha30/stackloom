@@ -1,0 +1,19 @@
+.course-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.course-filters .btn {
+  white-space: nowrap;
+  flex: 0 1 auto;
+}
+
+@media (max-width: 600px) {
+  .course-filters .btn {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

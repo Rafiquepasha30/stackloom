@@ -37,7 +37,9 @@ const SharedNavbar = () => {
 
       <Navbar expand="lg" bg="white" className="shadow-sm">
         <Container>
-          <img src={Logo} alt="Logo" className="logo-img" />
+          <Navbar.Brand href="/">
+            <img src={Logo} alt="Logo" height="65" />
+          </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">

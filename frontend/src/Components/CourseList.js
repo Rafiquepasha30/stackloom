@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CourseCard from "../Components/CourseCard";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 
 const categories = [
   "All",
@@ -16,7 +16,7 @@ const CourseList = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const role = localStorage.getItem("role"); // 👉 Added Line
+  const role = localStorage.getItem("role");
 
   useEffect(() => {
     axios
@@ -41,18 +41,25 @@ const CourseList = () => {
     <Container className="mt-4">
       <h2 className="text-center mb-4">Our Courses</h2>
 
-      {/* Category Filter */}
-      <div className="d-flex justify-content-center mb-3">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant={selectedCategory === category ? "primary" : "outline-primary"}
-            className="me-2"
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </Button>
-        ))}
+      {/* Filter Dropdown */}
+      <div className="text-center mb-4">
+        <Dropdown>
+          <Dropdown.Toggle variant="primary" id="filter-dropdown">
+            Filter: {selectedCategory}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            {categories.map((category) => (
+              <Dropdown.Item
+                key={category}
+                active={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
 
       {/* Courses Grid */}
@@ -60,8 +67,11 @@ const CourseList = () => {
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (
             <Col key={course._id} md={4} className="mb-4">
-              {/* 👉 Passing role here */}
-              <CourseCard course={course} onDelete={deleteCourse} role={role} />
+              <CourseCard
+                course={course}
+                onDelete={deleteCourse}
+                role={role}
+              />
             </Col>
           ))
         ) : (
