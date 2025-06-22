@@ -22,6 +22,7 @@ const AdminPanel = () => {
   });
   const [courses, setCourses] = useState([]);
   const [students, setStudents] = useState([]);
+  const [showSidebar, setShowSidebar] = useState(window.innerWidth >= 768);
   const [editing, setEditing] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -46,6 +47,19 @@ const AdminPanel = () => {
       .then((res) => setCourses(res.data))
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const fetchTrainers = () => {
     axios
@@ -78,10 +92,12 @@ const AdminPanel = () => {
           resetCourseForm();
         });
     } else {
-      axios.post(`${process.env.REACT_APP_API_URL}/courses/add`, course).then(() => {
-        alert("Course Added");
-        resetCourseForm();
-      });
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/courses/add`, course)
+        .then(() => {
+          alert("Course Added");
+          resetCourseForm();
+        });
     }
   };
   const handleTrainerSubmit = (e) => {
@@ -117,10 +133,12 @@ const AdminPanel = () => {
   };
 
   const handleDelete = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/courses/${courseToDelete}`).then(() => {
-      alert("Deleted");
-      fetchCourses();
-    });
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/courses/${courseToDelete}`)
+      .then(() => {
+        alert("Deleted");
+        fetchCourses();
+      });
     setShowDeleteModal(false);
   };
 
@@ -128,9 +146,12 @@ const AdminPanel = () => {
     if (!selectedStudent || !selectedCourse)
       return alert("Select student and course!");
     axios
-      .post(`${process.env.REACT_APP_API_URL}/student/assign-course/${selectedStudent}`, {
-        courseId: selectedCourse,
-      })
+      .post(
+        `${process.env.REACT_APP_API_URL}/student/assign-course/${selectedStudent}`,
+        {
+          courseId: selectedCourse,
+        }
+      )
       .then((res) => alert(res.data.message))
       .catch((err) => alert(err.response.data.message));
   };
@@ -170,8 +191,24 @@ const AdminPanel = () => {
   return (
     <Container fluid>
       <Row>
-        <Col md={2} className="sidebar bg-dark text-white p-3">
-          <h4 className="text-center mb-4">Admin Dashboard</h4>
+        <div className="menu-toggle">
+          <Button
+            variant="primary"
+            size="sm"
+            className="d-md-none m-2"
+            onClick={() => setShowSidebar(!showSidebar)}
+          >
+            ☰ Admin Panel
+          </Button>
+        </div>
+
+        <Col
+          md={2}
+          className={`sidebar bg-dark text-white p-3 ${
+            showSidebar ? "d-block" : "d-none"
+          } d-lg-block`}
+        >
+          <h4 className="text-center mb-4">Admin Panel</h4>
           <Button
             variant="outline-light"
             className="w-100 mb-2"
@@ -280,7 +317,6 @@ const AdminPanel = () => {
                   </Col>
                 </Row>
 
-                
                 <Button
                   className="mt-3"
                   type="submit"
@@ -422,9 +458,7 @@ const AdminPanel = () => {
             <>
               <Card className="mb-4 shadow-sm">
                 <Card.Body>
-                  <Card.Title className="mb-3">
-                    Create New Trainer
-                  </Card.Title>
+                  <Card.Title className="mb-3">Create New Trainer</Card.Title>
                   <Form onSubmit={handleTrainerSubmit}>
                     <Row>
                       <Col md={4}>

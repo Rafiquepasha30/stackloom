@@ -88,3 +88,48 @@
   left: 0;
   border-right: 1px solid #ddd;
 }
+
+
+
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    min-height: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .sidebar h4 {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .admin-dashboard-container {
+    padding: 15px;
+  }
+
+  .section-heading {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .admin-form label {
+    font-size: 14px;
+  }
+
+  .admin-form input,
+  .admin-form select {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+
+  .admin-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
