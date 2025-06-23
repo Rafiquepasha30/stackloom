@@ -19,14 +19,14 @@ StackLoom is a full-stack training and course management web app built using the
 - **Hosting**: Vercel (frontend), Render (backend)
 
 ## Backend
--**cd backend**
--**npm install**
--**npm start**
+**cd backend**
+**npm install**
+**npm start**
 
 ## Frontend
--**cd frontend**
--**npm install**
--**npm start**
+**cd frontend**
+**npm install**
+**npm start**
 
 
 
